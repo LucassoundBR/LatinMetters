@@ -1,0 +1,12 @@
+# To-Do List (Organized by Priority)
+
+## High Priority
+- [x] Add LinkedIn contact link.
+- [x] Add Ko-Fi donation widget.
+- [x] Fix Fullscreen API: Add vendor prefixes to ensure it works on Brave, Safari, and other strict browsers.
+- [x] Add UI Hint for System Audio: The browser's `getDisplayMedia` API (which opens the screen share dialog) is the *only* way to capture system sound due to security rules. We need to add a hint so users know to check "Share Audio" in that dialog.
+- [x] Add `es-module-shims` polyfill for Import Maps support (Safari 16.4- compatibility).
+- [x] Add vendor prefixes (`-webkit-backdrop-filter`, etc.) for CSS compatibility.
+
+## Medium Priority
+- [ ] Verify/test application over HTTPS to ensure `getUserMedia` works across all devices.
