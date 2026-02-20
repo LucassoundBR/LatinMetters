@@ -1,0 +1,9 @@
+# To-Do List (Organized by Priority)
+
+## High Priority
+- [ ] Add `es-module-shims` polyfill for Import Maps support (Safari 16.4- compatibility).
+- [ ] Add vendor prefixes (`-webkit-backdrop-filter`) for CSS `backdrop-filter` in `#ui-container`.
+- [ ] Add vendor prefixes for the Fullscreen API (`webkitRequestFullscreen`, `msRequestFullscreen`, etc.) in the `fsBtn` click listener.
+
+## Medium Priority
+- [ ] Verify/test application over HTTPS to ensure `getUserMedia` works across all devices.
