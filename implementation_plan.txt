@@ -1,6 +1,7 @@
 # To-Do List (Organized by Priority)
 
 ## High Priority
+- [ ] Refactor `index.html` architecture: Separate concerns into `css/style.css`, `js/audio.js`, `js/visuals.js`, and `js/app.js`.
 - [x] Add LinkedIn contact link.
 - [x] Add Ko-Fi donation widget.
 - [x] Fix Fullscreen API: Add vendor prefixes to ensure it works on Brave, Safari, and other strict browsers.
