@@ -15,7 +15,8 @@ export const i18nData = {
         view_iso: "ISO", view_front: "FRONT", view_side: "SIDE", view_top: "TOP",
         pal_dreamy: "Dreamy", pal_ocean: "Midnight Sea", pal_plasma: "Plasma", pal_heat: "Heat",
         pal_amazonia: "Amazonia", pal_jinx: "Jinx", pal_spectral: "Nebula", pal_golden: "Luxury",
-        pal_kawaii: "Kawaii", pal_metal_gear: "Metal Gear"
+        pal_kawaii: "Kawaii", pal_metal_gear: "Metal Gear",
+        pal_reverse: "COLOR REVERSE"
     },
     pt: {
         amp: "AMP", depth: "PROFUNDIDADE", speed: "VELOCIDADE", palette: "PALETA",
@@ -31,7 +32,8 @@ export const i18nData = {
         view_iso: "ISO", view_front: "FRENTE", view_side: "LADO", view_top: "TOPO",
         pal_dreamy: "Sonho", pal_ocean: "Mar da Meia-noite", pal_plasma: "Plasma", pal_heat: "Calor",
         pal_amazonia: "Amazônia", pal_jinx: "Jinx", pal_spectral: "Nebulosa", pal_golden: "Luxo",
-        pal_kawaii: "Kawaii", pal_metal_gear: "Metal Gear"
+        pal_kawaii: "Kawaii", pal_metal_gear: "Metal Gear",
+        pal_reverse: "INVERTER COR"
     },
     es: {
         amp: "AMP", depth: "PROFUNDIDAD", speed: "VELOCIDAD", palette: "PALETA",
@@ -47,7 +49,8 @@ export const i18nData = {
         view_iso: "ISO", view_front: "FRENTE", view_side: "LADO", view_top: "ARRIBA",
         pal_dreamy: "Ensueño", pal_ocean: "Mar de Medianoche", pal_plasma: "Plasma", pal_heat: "Calor",
         pal_amazonia: "Amazonia", pal_jinx: "Jinx", pal_spectral: "Nebulosa", pal_golden: "Lujo",
-        pal_kawaii: "Kawaii", pal_metal_gear: "Metal Gear"
+        pal_kawaii: "Kawaii", pal_metal_gear: "Metal Gear",
+        pal_reverse: "INVERTIR COLOR"
     }
 };
 

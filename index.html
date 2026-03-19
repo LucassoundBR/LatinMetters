@@ -80,18 +80,21 @@
 
             <div class="control-group">
                 <label data-i18n="palette">PALETTE</label>
-                <select id="paletteSelect">
-                    <option value="dreamy">Dreamy</option>
-                    <option value="ocean">Midnight Sea</option>
-                    <option value="plasma">Plasma</option>
-                    <option value="heat">Heat</option>
-                    <option value="amazonia">Amazonia</option>
-                    <option value="jinx">Jinx</option>
-                    <option value="spectral">Nebula</option>
-                    <option value="golden">Luxury</option>
-                    <option value="kawaii">Kawaii</option>
-                    <option value="metal_gear">Metal Gear</option>
-                </select>
+                <div style="display: flex; gap: 8px;">
+                    <select id="paletteSelect" style="flex: 2;">
+                        <option value="dreamy">Dreamy</option>
+                        <option value="ocean">Midnight Sea</option>
+                        <option value="plasma">Plasma</option>
+                        <option value="heat">Heat</option>
+                        <option value="amazonia">Amazonia</option>
+                        <option value="jinx">Jinx</option>
+                        <option value="spectral">Nebula</option>
+                        <option value="golden">Luxury</option>
+                        <option value="kawaii">Kawaii</option>
+                        <option value="metal_gear">Metal Gear</option>
+                    </select>
+                    <button id="palRevBtn" class="toggle-btn" data-i18n="pal_reverse" style="flex: 1;"></button>
+                </div>
             </div>
 
             <div class="control-group">

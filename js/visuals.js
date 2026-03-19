@@ -153,7 +153,8 @@ export class VisualEngine {
     }
 
     getPaletteColor(t, paletteName) {
-        const colors = palettes[paletteName] || palettes.dreamy;
+        let colors = palettes[paletteName] || palettes.dreamy;
+        if (this.config.reversePalette) colors = [...colors].reverse();
         const c1 = new THREE.Color(colors[0]); const c2 = new THREE.Color(colors[1]); const c3 = new THREE.Color(colors[2]); const c4 = new THREE.Color(colors[3]);
         const finalColor = new THREE.Color();
         if (t < 0.33) finalColor.lerpColors(c1, c2, t / 0.33);
@@ -278,17 +279,17 @@ export class VisualEngine {
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         this.composer.setSize(window.innerWidth, window.innerHeight);
         this.camera.aspect = window.innerWidth / window.innerHeight;
-        
+
         // Update offset based on current UI visibility
         this.updateCameraOffset(this.isUiVisible !== undefined ? this.isUiVisible : true);
-        
+
         this.camera.updateProjectionMatrix();
 
         const aspect = window.innerWidth / window.innerHeight;
         // Zoomed out default/resize positions
-        if (aspect < 1) this.camera.position.set(120, 105, 120); 
+        if (aspect < 1) this.camera.position.set(120, 105, 120);
         else this.camera.position.set(90, 75, 90);
-        
+
         this.controls.target.set(0, 0, 0);
 
         this.effectFXAA.uniforms['resolution'].value.set(1 / (window.innerWidth * this.renderer.getPixelRatio()), 1 / (window.innerHeight * this.renderer.getPixelRatio()));

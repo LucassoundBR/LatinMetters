@@ -18,7 +18,8 @@ class App {
             amp: 48,
             palette: 'dreamy',
             displayMode: 'solid',
-            gridVisible: true
+            gridVisible: true,
+            reversePalette: false
         };
 
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -174,24 +175,9 @@ class App {
 
             this.i18n.setLang(this.i18n.currentLang);
         });
-
-        addListener('fsBtn', 'click', (e) => {
-            const de = document.documentElement;
-            const isFS = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
-            
-            if (!isFS) {
-                if (de.requestFullscreen) de.requestFullscreen().catch(e => console.warn(e));
-                else if (de.webkitRequestFullscreen) de.webkitRequestFullscreen();
-                else if (de.mozRequestFullScreen) de.mozRequestFullScreen();
-                else if (de.msRequestFullscreen) de.msRequestFullscreen();
-                e.target.classList.add('active');
-            } else {
-                if (document.exitFullscreen) document.exitFullscreen().catch(e => console.warn(e));
-                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
-                else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
-                else if (document.msExitFullscreen) document.msExitFullscreen();
-                e.target.classList.remove('active');
-            }
+ 
+        addListener('palRevBtn', 'click', () => {
+            this.togglePaletteReverse();
         });
 
         addListener('fftSelect', 'change', (e) => {
@@ -244,6 +230,17 @@ class App {
         if (!this.isPaused) this.frameCount++;
 
         this.visuals.render(this.persistentData);
+    }
+
+    togglePaletteReverse() {
+        this.config.reversePalette = !this.config.reversePalette;
+        this.visuals.initGeometry(true, this.persistentData);
+        
+        const btn = document.getElementById('palRevBtn');
+        if (btn) {
+            if (this.config.reversePalette) btn.classList.add('active');
+            else btn.classList.remove('active');
+        }
     }
 }
 
