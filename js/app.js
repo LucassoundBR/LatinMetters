@@ -17,7 +17,8 @@ class App {
             speedDivisor: 4,
             amp: 30,
             palette: 'dreamy',
-            displayMode: 'solid'
+            displayMode: 'solid',
+            gridVisible: true
         };
 
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -29,8 +30,7 @@ class App {
         // Scene specific configuration state
         this.sceneConfig = {
             rotState: 0,
-            audioSource: 'mic',
-            gridVisible: true
+            audioSource: 'mic'
         };
 
         // Persistent height data
@@ -146,9 +146,9 @@ class App {
         });
 
         addListener('gridBtn', 'click', (e) => {
-            this.sceneConfig.gridVisible = !this.sceneConfig.gridVisible;
+            this.config.gridVisible = !this.config.gridVisible;
             this.visuals.updateLabelsAndGrid();
-            e.target.innerText = this.sceneConfig.gridVisible ? this.i18n.getCurrentLangData().grid_on : this.i18n.getCurrentLangData().grid_off;
+            e.target.innerText = this.config.gridVisible ? this.i18n.getCurrentLangData().grid_on : this.i18n.getCurrentLangData().grid_off;
             e.target.classList.toggle('active');
         });
 
@@ -176,14 +176,20 @@ class App {
 
         addListener('fsBtn', 'click', (e) => {
             const de = document.documentElement;
-            if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+            const isFS = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+            
+            if (!isFS) {
                 if (de.requestFullscreen) de.requestFullscreen().catch(e => console.warn(e));
                 else if (de.webkitRequestFullscreen) de.webkitRequestFullscreen();
+                else if (de.mozRequestFullScreen) de.mozRequestFullScreen();
                 else if (de.msRequestFullscreen) de.msRequestFullscreen();
+                e.target.classList.add('active');
             } else {
                 if (document.exitFullscreen) document.exitFullscreen().catch(e => console.warn(e));
                 else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
                 else if (document.msExitFullscreen) document.msExitFullscreen();
+                e.target.classList.remove('active');
             }
         });
 

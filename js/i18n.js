@@ -58,6 +58,10 @@ export class I18nManager {
         this.sceneConfig = sceneConfig;
     }
 
+    getCurrentLangData() {
+        return i18nData[this.currentLang];
+    }
+
     setLang(lang) {
         this.currentLang = lang;
 
