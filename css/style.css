@@ -5,7 +5,7 @@
             --border: rgba(255, 255, 255, 0.1);
             --accent: #888888;
             --highlight: #ffffff;
-            --sidebar-width: 220px;
+            --sidebar-width: 275px;
             --font-main: 'Share Tech Mono', monospace;
         }
 
@@ -65,8 +65,7 @@
             flex-direction: column;
             gap: 4px;
             margin-bottom: 10px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 20px;
+            padding-bottom: 10px;
         }
 
         .brand {
@@ -207,7 +206,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 40px; /* Base height for 1-2 lines */
+            min-height: 40px;
+            /* Base height for 1-2 lines */
         }
 
         .toggle-btn:hover {
@@ -224,11 +224,18 @@
         /* FOOTER INFO */
         .info-footer {
             margin-top: auto;
-            border-top: 1px solid var(--border);
-            padding-top: 20px;
+            padding-top: 10px;
             display: flex;
             flex-direction: column;
             gap: 10px;
+        }
+
+        .coffee-container {
+            display: flex;
+            justify-content: center;
+            transform: scale(0.75);
+            transform-origin: center;
+            margin-bottom: 5px;
         }
 
         /* ATALHOS DESTACADOS */
