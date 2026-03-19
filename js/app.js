@@ -15,7 +15,7 @@ class App {
             depth: 64,
             halfDepth: false,
             speedDivisor: 4,
-            amp: 30,
+            amp: 48,
             palette: 'dreamy',
             displayMode: 'solid',
             gridVisible: true
@@ -49,6 +49,7 @@ class App {
         this.audio = new AudioEngine(this.config, () => this.updateBinIndexLUT());
 
         this.visuals = new VisualEngine(this.config);
+        this.visuals.updateCameraOffset(this.isUiVisible);
 
         // Initial language setup
         this.i18n.setLang('en');
@@ -203,6 +204,7 @@ class App {
                 e.preventDefault();
                 this.isUiVisible = !this.isUiVisible;
                 document.getElementById('ui-container').style.transform = this.isUiVisible ? 'translateX(0)' : 'translateX(-100%)';
+                this.visuals.updateCameraOffset(this.isUiVisible);
             }
             if (e.code === 'Space') {
                 e.preventDefault();

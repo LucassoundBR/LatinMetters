@@ -51,7 +51,7 @@ export class VisualEngine {
     initScene() {
         this.scene = new THREE.Scene();
         this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-        this.camera.position.set(60, 50, 60);
+        this.camera.position.set(90, 75, 90);
 
         this.renderer = new THREE.WebGLRenderer({ antialias: !this.isMobile });
         this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -239,10 +239,11 @@ export class VisualEngine {
     }
 
     updateView(v) {
-        if (v === 'iso') this.camera.position.set(60, 50, 60);
-        else if (v === 'front') this.camera.position.set(0, 20, 80);
-        else if (v === 'side') this.camera.position.set(90, 20, 0);
-        else if (v === 'top') this.camera.position.set(0, 100, 0);
+        // Zoomed out presets (approx 1.5x original)
+        if (v === 'iso') this.camera.position.set(90, 75, 90);
+        else if (v === 'front') this.camera.position.set(0, 30, 120);
+        else if (v === 'side') this.camera.position.set(135, 30, 0);
+        else if (v === 'top') this.camera.position.set(0, 150, 0);
         this.controls.target.set(0, 0, 0);
         this.controls.update();
     }
@@ -259,14 +260,35 @@ export class VisualEngine {
         }
     }
 
+    updateCameraOffset(isUiVisible) {
+        this.isUiVisible = isUiVisible;
+        const sidebarWidth = isUiVisible ? 220 : 0;
+        // Shift visual center by half of sidebar width to center in remaining space
+        this.camera.setViewOffset(
+            window.innerWidth,
+            window.innerHeight,
+            -sidebarWidth / 2,
+            0,
+            window.innerWidth,
+            window.innerHeight
+        );
+    }
+
     handleResize() {
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         this.composer.setSize(window.innerWidth, window.innerHeight);
         this.camera.aspect = window.innerWidth / window.innerHeight;
+        
+        // Update offset based on current UI visibility
+        this.updateCameraOffset(this.isUiVisible !== undefined ? this.isUiVisible : true);
+        
         this.camera.updateProjectionMatrix();
 
         const aspect = window.innerWidth / window.innerHeight;
-        if (aspect < 1) this.camera.position.set(80, 70, 80); else this.camera.position.set(60, 50, 60);
+        // Zoomed out default/resize positions
+        if (aspect < 1) this.camera.position.set(120, 105, 120); 
+        else this.camera.position.set(90, 75, 90);
+        
         this.controls.target.set(0, 0, 0);
 
         this.effectFXAA.uniforms['resolution'].value.set(1 / (window.innerWidth * this.renderer.getPixelRatio()), 1 / (window.innerHeight * this.renderer.getPixelRatio()));

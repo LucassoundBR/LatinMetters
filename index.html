@@ -53,8 +53,8 @@
 
             <!-- GROUP 1: VISUALS -->
             <div class="control-group">
-                <label><span data-i18n="amp">AMP</span> <span id="ampVal">30</span></label>
-                <input type="range" id="ampSlider" min="10" max="100" value="30">
+                <label><span data-i18n="amp">AMP</span> <span id="ampVal">48</span></label>
+                <input type="range" id="ampSlider" min="10" max="100" value="48">
             </div>
 
             <div class="control-group">
@@ -71,10 +71,10 @@
                 <label>FFT SIZE</label>
                 <select id="fftSelect">
                     <option value="1024">1024</option>
-                    <option value="2048" selected>2048</option>
+                    <option value="2048">2048</option>
                     <option value="4096">4096</option>
                     <option value="8192">8192</option>
-                    <option value="16384">16384</option>
+                    <option value="16384" selected>16384</option>
                 </select>
             </div>
 
@@ -115,12 +115,12 @@
                 </select>
             </div>
 
-            <div class="control-group" style="flex-direction: row; align-items: flex-end; gap: 8px;">
+            <div class="control-group" style="flex-direction: row; align-items: stretch; gap: 8px;">
                 <button id="sizeBtn" class="toggle-btn active" data-i18n="size_full">SIZE: FULL</button>
                 <button id="gridBtn" class="toggle-btn active" data-i18n="grid_on">GRID: ON</button>
             </div>
 
-            <div class="control-group" style="flex-direction: row; align-items: flex-end; gap: 8px;">
+            <div class="control-group" style="flex-direction: row; align-items: stretch; gap: 8px;">
                 <button id="srcBtn" class="toggle-btn" data-i18n="src_mic">SOURCE: MIC</button>
                 <button id="rotBtn" class="toggle-btn" data-i18n="rot_off">ROT: OFF</button>
                 <button id="fsBtn" class="toggle-btn">⛶</button>
